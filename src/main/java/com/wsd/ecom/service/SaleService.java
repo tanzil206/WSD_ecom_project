@@ -19,4 +19,5 @@ public interface SaleService {
 	public List<Sale> getAllTopSaleByTotalPrice();
 
 	public List<Sale> getLastMonthTopSaleByTotalUnit();
+
 }

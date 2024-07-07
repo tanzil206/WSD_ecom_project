@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-
 @RequestMapping("/api/product/sale")
 public class SaleController {
 
@@ -45,10 +44,12 @@ public class SaleController {
 		} catch (Exception ex) {
 			log.error(ex.getMessage());
 			return new ResponseEntity<>("Message : No sale record found for today", HttpStatus.BAD_REQUEST);
+
 		}
 		return new ResponseEntity<>("totalSale:" + totalSaleamount, HttpStatus.OK);
 
 	}
+
 
 	@GetMapping("/daterange")
 	public ResponseEntity<?> getSaleByDateRange(@RequestParam String startDate, @RequestParam String endDate)
