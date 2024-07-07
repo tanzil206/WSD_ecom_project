@@ -44,7 +44,7 @@ public class SaleController {
 			totalSaleamount = saleService.getSaleByDate(currentdate);
 		} catch (Exception ex) {
 			log.error(ex.getMessage());
-			return new ResponseEntity<>("No sale record found for today", HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>("Message : No sale record found for today", HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>("totalSale:" + totalSaleamount, HttpStatus.OK);
 
@@ -59,15 +59,19 @@ public class SaleController {
 		Date startdate = (Date) dt.parse(startDate);
 		Date enddate = (Date) dt.parse(endDate);
 
-		log.info("Start date " + startDate + "End date :" +endDate);
+		log.info("Start date: " + startDate + " End date : " + endDate);
 		try {
-			sale = saleService.getSaleByDateRange(startdate, enddate); /* Call service for get sale date between date range*/
+			sale = saleService.getSaleByDateRange(startdate,
+					enddate); /* Call service for get sale date between date range */
 		} catch (Exception ex) {
 			log.error(ex.getMessage());
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(sale, HttpStatus.OK);
-
+		if (sale == null) {
+			return new ResponseEntity<>("Message : No Sale record found between these range", HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(sale, HttpStatus.OK);
+		}
 	}
 
 	@GetMapping("/alltime")
@@ -80,7 +84,11 @@ public class SaleController {
 			log.error(ex.getMessage());
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(productSaleList, HttpStatus.OK);
+		if (productSaleList == null) {
+			return new ResponseEntity<>("Message : No sale record found", HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(productSaleList, HttpStatus.OK);
+		}
 	}
 
 	@GetMapping("/lastMonth")
@@ -92,8 +100,13 @@ public class SaleController {
 			log.error(ex.getMessage());
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<>(productSaleList, HttpStatus.OK);
+		if (productSaleList == null) {
+			return new ResponseEntity<>("Message : No sale record found", HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<>(productSaleList, HttpStatus.OK);
+		}
 	}
+
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	private void SaleNotFound(SaleNotFoundException e) {

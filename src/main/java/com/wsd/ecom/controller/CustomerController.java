@@ -28,14 +28,14 @@ public class CustomerController {
 
 		WishListResponse wishListResponse = new WishListResponse();
 		try {
-			log.info("UserName :" +username);
+			log.info("UserName : " +username);
 			wishListResponse = customerService.getCustomerWishList(username);
 		} catch (Exception ex) {
 			log.error(ex.getMessage());
 			return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
 		}
 		if(wishListResponse == null) {
-			return new ResponseEntity<>("Message:Customer wishlist not found", HttpStatus.NOT_FOUND);	
+			return new ResponseEntity<>("Message : Customer wishlist not found", HttpStatus.NOT_FOUND);	
 		}else {
 			return new ResponseEntity<>(wishListResponse, HttpStatus.OK);
 		}
