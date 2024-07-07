@@ -1,5 +1,6 @@
 package com.wsd.ecom.controller;
 
+
 import com.wsd.ecom.dto.WishListResponse;
 import com.wsd.ecom.entity.Customer;
 import com.wsd.ecom.exception.CustomerNotFoundException;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
+
 @RequestMapping("/api/customer")
+
 public class CustomerController {
 
 	private CustomerService customerService;
@@ -39,7 +42,6 @@ public class CustomerController {
 		
 
 	}
-
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	private void CustomerNotFound(CustomerNotFoundException e) {

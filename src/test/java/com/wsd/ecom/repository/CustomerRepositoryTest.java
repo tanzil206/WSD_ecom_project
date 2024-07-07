@@ -1,6 +1,7 @@
 package com.wsd.ecom.repository;
 
 import com.wsd.ecom.entity.Customer;
+
 import com.wsd.ecom.factory.CustomerFactory;
 
 import net.bytebuddy.utility.dispatcher.JavaDispatcher.Container;
@@ -51,4 +52,6 @@ public class CustomerRepositoryTest {
         assertThat(customer.get().getUserName()).isEqualTo("tanzir206");
         assertThat(customer.get().getCustomerName()).isEqualTo("Tanzir Ahamed");
     }
+
 }
+

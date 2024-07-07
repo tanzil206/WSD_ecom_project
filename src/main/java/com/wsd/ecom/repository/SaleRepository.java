@@ -33,4 +33,5 @@ public interface SaleRepository extends CrudRepository<Sale, Long> {
     List<Sale> findAllBySaleDateBetween(@Param("startDate") Date startDate,@Param("endDate") Date endDate);
     
   
+
 }

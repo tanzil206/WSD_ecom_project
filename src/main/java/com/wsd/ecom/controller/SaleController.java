@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
+
 @RequestMapping("/api/product/sale")
 public class SaleController {
 
@@ -93,7 +94,6 @@ public class SaleController {
 		}
 		return new ResponseEntity<>(productSaleList, HttpStatus.OK);
 	}
-
 	@ExceptionHandler
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	private void SaleNotFound(SaleNotFoundException e) {
