@@ -23,12 +23,6 @@ public class CustomerServiceTest {
     @MockBean
     private CustomerRepository customerRepository;
 
-//    @Test
-//    void should_return_Customer_details() {
-//        given(customerRepository.findById(1L)).willReturn(java.util.Optional.of(new Customer()));
-//        assertThat(customerService.getCustomer("tanzir206")).isNotNull();
-//    }
-
     @Test
     void should_not_return_Customer_details_if_not_present() {
         given(customerRepository.findById(anyLong())).willThrow(CustomerNotFoundException.class);

@@ -23,5 +23,29 @@ public class SaleService {
     public Sale getSale(Long id) {
         return saleRepository.findById(id).orElseThrow(SaleNotFoundException::new);
     }
+    
+    public double getSaleByDate(Date date) {
+        return saleRepository.sumTotalPriceBySaleDate(date);
+    }
+  
+    public Sale getSaleByDateRange(Date startdate,Date enddate) {
+        return saleRepository.findBySaleDateBetween(startdate,enddate);
+    }
+    
+    public List<Sale> getAllTopSaleByTotalPrice() {
 
+    	
+        return saleRepository.findAllByTotalAmount();
+    }
+    
+    public List<Sale> getLastMonthTopSaleByTotalUnit() {
+    	Calendar aCalendar = Calendar.getInstance(); /* Find out last month start and end date */
+    	aCalendar.set(Calendar.DATE, 1);
+    	aCalendar.add(Calendar.DAY_OF_MONTH, -1);
+    	Date lastDateOfPreviousMonth = aCalendar.getTime();
+    	aCalendar.set(Calendar.DATE, 1);
+    	Date firstDateOfPreviousMonth = aCalendar.getTime();
+    	
+        return saleRepository.findAllBySaleDateBetween(firstDateOfPreviousMonth,lastDateOfPreviousMonth);
+    }
 }
