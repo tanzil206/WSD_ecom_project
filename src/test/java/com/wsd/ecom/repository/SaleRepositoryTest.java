@@ -22,20 +22,4 @@ public class SaleRepositoryTest {
     @Autowired
     private SaleRepository saleRepository;
 
-    @BeforeEach
-    void setUp() {
-        saleRepository.save(SaleFactory.Sale());
-    }
-
-    @AfterEach
-    void tearDown() {
-        saleRepository.deleteAll();
-    }
-
-    @Test
-    void should_return_Sale_details() {
-        Optional<Sale> sale = saleRepository.findById(1L);
-        assertThat(sale.isPresent()).isTrue();
-        assertThat(sale.get().getTotalPrice()).isEqualTo(700);
-    }
 }

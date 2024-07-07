@@ -32,7 +32,7 @@ public class ProductServiceTest {
     @Test
     void should_not_return_Product_details_if_not_present() {
         given(productRepository.findById(anyLong())).willThrow(ProductNotFoundException.class);
-        assertThrows(ProductNotFoundException.class, () -> productService.getProduct(1L));
+        assertThrows(ProductNotFoundException.class, () -> productService.getProduct(50L));
     }
 
 }

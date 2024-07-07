@@ -39,4 +39,35 @@ public class WishList {
 	@JoinColumn(name = "product_id")
 	public Product product;
 
+//	public WishList(Long id, Customer customer, Product product) {
+//		super();
+//		this.id = id;
+//		this.customer = customer;
+//		this.product = product;
+//	}
+//
+//	public Long getId() {
+//		return id;
+//	}
+//
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//
+//	public Product getProduct() {
+//		return product;
+//	}
+//
+//	public void setProduct(Product product) {
+//		this.product = product;
+//	}
+
 }

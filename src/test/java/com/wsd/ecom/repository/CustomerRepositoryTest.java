@@ -1,25 +1,38 @@
 package com.wsd.ecom.repository;
 
 import com.wsd.ecom.entity.Customer;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-
 import com.wsd.ecom.factory.CustomerFactory;
 
+import net.bytebuddy.utility.dispatcher.JavaDispatcher.Container;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
+import static org.assertj.core.api.Assertions.assertThat;
+import java.util.List;
 import java.util.Optional;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
-@AutoConfigureMockMvc
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class CustomerRepositoryTest {
 
-    @Mock
+	
+    @Autowired
     private CustomerRepository customerRepository;
+
 
     @BeforeEach
     void setUp() {
@@ -39,3 +52,4 @@ public class CustomerRepositoryTest {
         assertThat(customer.get().getCustomerName()).isEqualTo("Tanzir Ahamed");
     }
 }
+
