@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  wsd-mysql:
+    container_name: wsd-mysql
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=wsd_com
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=1234
+    restart: always
+    command: --sql-mode=""    
+    ports:
+      - 3306:3306
+    volumes:
+     - ./wsd_com.sql:/docker-entrypoint-initdb.d/wsd_com.sql
+
+
+  api:
+    container_name: wsd-api
+    image: wsd-app-img
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+       - "8080:8080"
+    depends_on:
+       - wsd-mysql
+    restart: always 
+
+

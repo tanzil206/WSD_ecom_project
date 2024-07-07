@@ -11,6 +11,6 @@ public class SaleFactory {
     }
 
     public static Sale Sale() {
-        return new Sale(1L, new Product(), 1, 1,new Date(2024-07-07));
+        return new Sale(1L, new Product(), 1,20,new Date(2024-07-07));
     }
 }

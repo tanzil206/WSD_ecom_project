@@ -29,7 +29,11 @@ CREATE TABLE `customer` (
 
 /*Data for the table `customer` */
 
+<<<<<<< HEAD
+insert  into `customer`(`id`,`customer_name`,`user_name`) values (1,'Tanzil Ahamed','tanzir206'),(2,'Tanzil Ahmed','tanzil206');
+=======
 insert  into `customer`(`id`,`customer_name`,`user_name`) values (1,'Tanzil Ahmed','tanzir206');
+>>>>>>> b76f25d690c5fd4e73db0abfb93170a9e47e7e84
 
 /*Table structure for table `customer_seq` */
 
@@ -60,7 +64,11 @@ CREATE TABLE `product` (
 
 /*Data for the table `product` */
 
+<<<<<<< HEAD
+insert  into `product`(`id`,`product_name`,`product_code`,`unit_price`,`total_unit`,`code`,`total_stock`) values (1,'Salt','salt-500',20,20,NULL,20),(2,'ToothPaste','tp',100,10,NULL,100),(3,'Chawl','ch',60,30,NULL,60),(4,'Fish','fh',200,15,NULL,200),(5,'Beef','bf',700,7,NULL,700),(6,'Biscuit','bs',50,10,NULL,50),(7,'Noodles','nd',50,8,NULL,50),(8,'Salt','salt-1000',40,5,NULL,40),(9,'Minikate Chawl','mn-ch',70,20,NULL,70);
+=======
 insert  into `product`(`id`,`product_name`,`product_code`,`unit_price`,`total_unit`,`code`,`total_stock`) values (1,'Salt','salt-500',20,20,NULL,20),(2,'ToothPaste','tp',100,10,NULL,100),(3,'Chawl','ch',60,30,NULL,60),(4,'Fish','fh',200,15,NULL,200),(5,'Beef','bf',700,7,NULL,700),(6,'Biscuit','bs',50,10,NULL,50),(7,'Noodles','nd',50,8,NULL,50),(8,'Salt','salt-1000',40,5,NULL,40);
+>>>>>>> b76f25d690c5fd4e73db0abfb93170a9e47e7e84
 
 /*Table structure for table `product_seq` */
 
@@ -91,7 +99,11 @@ CREATE TABLE `sale` (
 
 /*Data for the table `sale` */
 
+<<<<<<< HEAD
+insert  into `sale`(`id`,`product_id`,`total_amount`,`total_price`,`sale_date`) values (1,1,1,20,'2024-06-30 00:00:00.000000'),(2,1,2,40,'2024-07-06 00:00:00.000000'),(3,2,1,100,'2024-06-23 00:00:00.000000'),(4,5,1,700,'2024-06-10 00:00:00.000000'),(5,8,1,40,'2024-06-18 00:00:00.000000'),(6,4,3,600,'2024-06-12 00:00:00.000000'),(7,6,2,100,'2024-07-06 00:00:00.000000'),(8,3,5,300,'2024-06-13 00:00:00.000000'),(9,3,10,600,'2024-07-06 00:00:00.000000'),(10,3,2,120,'2024-06-01 00:00:00.000000');
+=======
 insert  into `sale`(`id`,`product_id`,`total_amount`,`total_price`,`sale_date`) values (1,1,1,20,'2024-06-30 00:00:00.000000'),(2,1,2,40,'2024-07-07 00:00:00.000000'),(3,2,1,100,'2024-06-23 00:00:00.000000'),(4,5,1,700,'2024-06-10 00:00:00.000000'),(5,8,1,40,'2024-06-18 00:00:00.000000'),(6,4,3,600,'2024-06-12 00:00:00.000000'),(7,6,2,100,'2024-07-06 00:00:00.000000'),(8,3,5,300,'2024-06-13 00:00:00.000000'),(9,3,10,600,'2024-07-06 00:00:00.000000'),(10,3,2,120,'2024-06-01 00:00:00.000000');
+>>>>>>> b76f25d690c5fd4e73db0abfb93170a9e47e7e84
 
 /*Table structure for table `sale_seq` */
 
@@ -122,7 +134,11 @@ CREATE TABLE `wish_list` (
 
 /*Data for the table `wish_list` */
 
+<<<<<<< HEAD
+insert  into `wish_list`(`id`,`product_id`,`customer_id`) values (0,1,1),(1,2,1),(2,8,2);
+=======
 insert  into `wish_list`(`id`,`product_id`,`customer_id`) values (0,1,1),(1,2,1);
+>>>>>>> b76f25d690c5fd4e73db0abfb93170a9e47e7e84
 
 /*Table structure for table `wish_list_seq` */
 

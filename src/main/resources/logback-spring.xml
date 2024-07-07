@@ -38,7 +38,7 @@
   </root>
 
   <logger name="com.dagli.graylog" additivity="false">
-    <level value="DEBUG"/>
+    <level value="INFO"/>
     <appender-ref ref="GELF" />
     <appender-ref ref="STDOUT"/>
   </logger>

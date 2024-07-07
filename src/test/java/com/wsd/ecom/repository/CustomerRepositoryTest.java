@@ -3,9 +3,7 @@ package com.wsd.ecom.repository;
 import com.wsd.ecom.entity.Customer;
 import com.wsd.ecom.factory.CustomerFactory;
 
-import net.bytebuddy.utility.dispatcher.JavaDispatcher.Container;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -51,5 +49,6 @@ public class CustomerRepositoryTest {
         assertThat(customer.get().getUserName()).isEqualTo("tanzir206");
         assertThat(customer.get().getCustomerName()).isEqualTo("Tanzir Ahamed");
     }
+
 }
 
